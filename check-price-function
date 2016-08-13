@@ -1,0 +1,20 @@
+# Функция должна вернуть число в диапазоне от 1 до переменной count, либо значение "end"
+
+def set_price():
+    if count == 0:
+        price = 'end'
+        return price
+    else:
+        good_price = re.compile(r"^[0-9]+$")
+        while True:
+            price = enter_price()
+            while not good_price.search(price):
+                if price == 'end':
+                    return price
+                else:
+                    print("Введите допустимое значение")
+                    price = enter_price()
+            if int(price) in range(1, count + 1):
+                return price
+            else:
+                print("Ваша ставка не должна превышать вашего текущего счета, но должна быть больше нуля")
